@@ -10,12 +10,25 @@ import { EnvelopeIcon } from '@/components/icons/EnvelopeIcon'
 import { UserIcon } from '@/components/icons/UserIcon'
 import { UsersIcon } from '@/components/icons/UsersIcon'
 
-const resources = [
+const essentials = [
+  {
+    href: '/messages',
+    name: 'Brand Essence',
+    description: 'Electrifying Innovation for a Sustainable Tomorrow.',
+    icon: EnvelopeIcon,
+    pattern: {
+      y: 32,
+      squares: [
+        [0, 2],
+        [1, 4],
+      ],
+    },
+  },
   {
     href: '/contacts',
-    name: 'Contacts',
+    name: 'Brand Vision',
     description:
-      'Learn about the contact model and how to create, retrieve, update, delete, and list contacts.',
+      'To power the future of transportation through innovative and sustainable electric vehicle components.',
     icon: UserIcon,
     pattern: {
       y: 16,
@@ -27,9 +40,9 @@ const resources = [
   },
   {
     href: '/conversations',
-    name: 'Conversations',
+    name: 'Brand Mission',
     description:
-      'Learn about the conversation model and how to create, retrieve, update, delete, and list conversations.',
+      "Voltic is dedicated to accelerating the world's transition to electric transportation by providing high-quality, scalable, and eco-friendly components for commercial electric vehicles.",
     icon: ChatBubbleIcon,
     pattern: {
       y: -6,
@@ -41,9 +54,8 @@ const resources = [
   },
   {
     href: '/messages',
-    name: 'Messages',
-    description:
-      'Learn about the message model and how to create, retrieve, update, delete, and list messages.',
+    name: 'Brand Values',
+    description: 'Innovation, Sustainability, Precision, Agility, Partnership.',
     icon: EnvelopeIcon,
     pattern: {
       y: 32,
@@ -53,28 +65,17 @@ const resources = [
       ],
     },
   },
-  {
-    href: '/groups',
-    name: 'Groups',
-    description:
-      'Learn about the group model and how to create, retrieve, update, delete, and list groups.',
-    icon: UsersIcon,
-    pattern: {
-      y: 22,
-      squares: [[0, 1]],
-    },
-  },
 ]
 
-function ResourceIcon({ icon: Icon }) {
+function EssentialIcon({ icon: Icon }) {
   return (
-    <div className="flex h-7 w-7 items-center justify-center rounded-full bg-zinc-900/5 ring-1 ring-zinc-900/25 backdrop-blur-[2px] transition duration-300 group-hover:bg-white/50 group-hover:ring-zinc-900/25 dark:bg-white/7.5 dark:ring-white/15 dark:group-hover:bg-emerald-300/10 dark:group-hover:ring-emerald-400">
+    <div className="dark:bg-white/7.5 dark:ring-white/15 flex h-7 w-7 items-center justify-center rounded-full bg-zinc-900/5 ring-1 ring-zinc-900/25 backdrop-blur-[2px] transition duration-300 group-hover:bg-white/50 group-hover:ring-zinc-900/25 dark:group-hover:bg-emerald-300/10 dark:group-hover:ring-emerald-400">
       <Icon className="h-5 w-5 fill-zinc-700/10 stroke-zinc-700 transition-colors duration-300 group-hover:stroke-zinc-900 dark:fill-white/10 dark:stroke-zinc-400 dark:group-hover:fill-emerald-300/10 dark:group-hover:stroke-emerald-400" />
     </div>
   )
 }
 
-function ResourcePattern({ mouseX, mouseY, ...gridProps }) {
+function EssentialPattern({ mouseX, mouseY, ...gridProps }) {
   let maskImage = useMotionTemplate`radial-gradient(180px at ${mouseX}px ${mouseY}px, white, transparent)`
   let style = { maskImage, WebkitMaskImage: maskImage }
 
@@ -85,7 +86,7 @@ function ResourcePattern({ mouseX, mouseY, ...gridProps }) {
           width={72}
           height={56}
           x="50%"
-          className="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-black/[0.02] stroke-black/5 dark:fill-white/1 dark:stroke-white/2.5"
+          className="dark:fill-white/1 dark:stroke-white/2.5 absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-black/[0.02] stroke-black/5"
           {...gridProps}
         />
       </div>
@@ -101,7 +102,7 @@ function ResourcePattern({ mouseX, mouseY, ...gridProps }) {
           width={72}
           height={56}
           x="50%"
-          className="absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-black/50 stroke-black/70 dark:fill-white/2.5 dark:stroke-white/10"
+          className="dark:fill-white/2.5 absolute inset-x-0 inset-y-[-30%] h-[160%] w-full skew-y-[-18deg] fill-black/50 stroke-black/70 dark:stroke-white/10"
           {...gridProps}
         />
       </motion.div>
@@ -109,7 +110,7 @@ function ResourcePattern({ mouseX, mouseY, ...gridProps }) {
   )
 }
 
-function Resource({ resource }) {
+function Essential({ essential }) {
   let mouseX = useMotionValue(0)
   let mouseY = useMotionValue(0)
 
@@ -121,37 +122,41 @@ function Resource({ resource }) {
 
   return (
     <div
-      key={resource.href}
+      key={essential.href}
       onMouseMove={onMouseMove}
-      className="group relative flex rounded-2xl bg-zinc-50 transition-shadow hover:shadow-md hover:shadow-zinc-900/5 dark:bg-white/2.5 dark:hover:shadow-black/5"
+      className="dark:bg-white/2.5 group relative flex rounded-2xl bg-zinc-50 transition-shadow hover:shadow-md hover:shadow-zinc-900/5 dark:hover:shadow-black/5"
     >
-      <ResourcePattern {...resource.pattern} mouseX={mouseX} mouseY={mouseY} />
-      <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-zinc-900/7.5 group-hover:ring-zinc-900/10 dark:ring-white/10 dark:group-hover:ring-white/20" />
-      <div className="relative rounded-2xl px-4 pb-4 pt-16">
-        <ResourceIcon icon={resource.icon} />
+      <EssentialPattern
+        {...essential.pattern}
+        mouseX={mouseX}
+        mouseY={mouseY}
+      />
+      <div className="ring-zinc-900/7.5 absolute inset-0 rounded-2xl ring-1 ring-inset group-hover:ring-zinc-900/10 dark:ring-white/10 dark:group-hover:ring-white/20" />
+      <div className="relative rounded-2xl px-4 pb-4 pt-8 lg:px-8 lg:pb-8 lg:pt-12">
+        <EssentialIcon icon={essential.icon} />
         <h3 className="mt-4 text-sm font-semibold leading-7 text-zinc-900 dark:text-white">
-          <Link href={resource.href}>
+          <Link href={essential.href}>
             <span className="absolute inset-0 rounded-2xl" />
-            {resource.name}
+            {essential.name}
           </Link>
         </h3>
         <p className="mt-1 text-sm text-zinc-600 dark:text-zinc-400">
-          {resource.description}
+          {essential.description}
         </p>
       </div>
     </div>
   )
 }
 
-export function Resources() {
+export function Essentials() {
   return (
     <div className="my-16 xl:max-w-none">
-      <Heading level={2} id="resources">
-        Resources
+      <Heading level={2} id="essentials">
+        Essentials
       </Heading>
-      <div className="not-prose mt-4 grid grid-cols-1 gap-8 border-t border-zinc-900/5 pt-10 dark:border-white/5 sm:grid-cols-2 xl:grid-cols-4">
-        {resources.map((resource) => (
-          <Resource key={resource.href} resource={resource} />
+      <div className="not-prose mt-4 grid grid-cols-1 gap-8 border-t border-zinc-900/5 pt-10 dark:border-white/5 sm:grid-cols-2">
+        {essentials.map((essential) => (
+          <Essential key={essential.href} essential={essential} />
         ))}
       </div>
     </div>

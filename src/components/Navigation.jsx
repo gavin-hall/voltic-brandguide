@@ -89,7 +89,7 @@ function VisibleSectionHighlight({ group, pathname }) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1, transition: { delay: 0.2 } }}
       exit={{ opacity: 0 }}
-      className="absolute inset-x-0 top-0 bg-zinc-800/2.5 will-change-transform dark:bg-white/2.5"
+      className="bg-zinc-800/2.5 dark:bg-white/2.5 absolute inset-x-0 top-0 will-change-transform"
       style={{ borderRadius: 8, height, top }}
     />
   )
@@ -193,25 +193,56 @@ function NavigationGroup({ group, className }) {
 
 export const navigation = [
   {
-    title: 'Guides',
+    title: 'Brand Strategy',
     links: [
       { title: 'Introduction', href: '/' },
-      { title: 'Quickstart', href: '/quickstart' },
-      { title: 'SDKs', href: '/sdks' },
-      { title: 'Authentication', href: '/authentication' },
-      { title: 'Pagination', href: '/pagination' },
-      { title: 'Errors', href: '/errors' },
-      { title: 'Webhooks', href: '/webhooks' },
+      { title: 'Target Audience', href: '/target-audience' },
+      { title: 'Market Analysis', href: '/market-analysis' },
+      { title: 'Brand Values', href: '/brand-values' },
+      { title: 'Brand Positioning', href: '/brand-positioning' },
+      { title: 'Brand Personality', href: '/brand-personality' },
+      { title: 'Brand Promise', href: '/brand-promise' },
+      { title: 'Brand Story', href: '/brand-story' },
+      { title: 'Key Messages', href: '/key-messages' },
+      { title: 'Communication Strategy', href: '/communication-strategy' },
+      { title: 'Measurement and Eval', href: '/measurement-and-evaluation' },
     ],
   },
   {
-    title: 'Resources',
+    title: 'Brand Identity Guidelines',
     links: [
-      { title: 'Contacts', href: '/contacts' },
-      { title: 'Conversations', href: '/conversations' },
-      { title: 'Messages', href: '/messages' },
-      { title: 'Groups', href: '/groups' },
-      { title: 'Attachments', href: '/attachments' },
+      { title: 'Logo Usage', href: '/logo-usage' },
+      { title: 'Color Palette', href: '/color-palette' },
+      { title: 'Typography', href: '/typography' },
+      { title: 'Voice and Tone', href: '/voice-and-tone' },
+    ],
+  },
+  {
+    title: 'Marketing Templates',
+    links: [
+      { title: 'Print Materials', href: '/print-materials' },
+      { title: 'Presentation Templates', href: '/presentation-templates' },
+    ],
+  },
+  {
+    title: 'Digital Assets',
+    links: [
+      { title: 'Website', href: '/website' },
+      { title: 'Social Media', href: '/social-media' },
+    ],
+  },
+  {
+    title: 'Physical Assets',
+    links: [
+      { title: 'Signage', href: '/signage' },
+      { title: 'Packaging', href: '/packaging' },
+    ],
+  },
+  {
+    title: 'Brand Launch Plan',
+    links: [
+      { title: 'Timeline', href: '/timeline' },
+      { title: 'Training Materials', href: '/training-materials' },
     ],
   },
 ]
@@ -220,9 +251,9 @@ export function Navigation(props) {
   return (
     <nav {...props}>
       <ul role="list">
-        <TopLevelNavItem href="/">API</TopLevelNavItem>
+        {/* <TopLevelNavItem href="/">API</TopLevelNavItem>
         <TopLevelNavItem href="#">Documentation</TopLevelNavItem>
-        <TopLevelNavItem href="#">Support</TopLevelNavItem>
+        <TopLevelNavItem href="#">Support</TopLevelNavItem> */}
         {navigation.map((group, groupIndex) => (
           <NavigationGroup
             key={group.title}
