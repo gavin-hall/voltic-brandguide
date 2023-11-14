@@ -1,6 +1,8 @@
-export function Logo(props) {
+export function SiteLogo(props) {
   return (
-    <div className="font-bold">Voltic Brand Guide</div>
+    <div>
+      <div className="font-bold">Voltic Brand Guide</div>
+    </div>
     // <svg viewBox="0 0 99 24" aria-hidden="true" {...props}>
     //   <path
     //     className="fill-emerald-400"
