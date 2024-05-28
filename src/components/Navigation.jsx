@@ -265,8 +265,12 @@ export function Navigation(props) {
           {/* <Button href="#" variant="filled" className="w-full">
             Sign in
           </Button> */}
-          <Button variant="filled" className="w-full">
-            Sign in
+          <Button
+            href="https://volticelectric.com"
+            variant="filled"
+            className="w-full"
+          >
+            Go to website
           </Button>
         </li>
       </ul>
