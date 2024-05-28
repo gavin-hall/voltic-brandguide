@@ -1,4 +1,5 @@
 import glob from 'fast-glob'
+import Head from 'next/head'
 
 import { Providers } from '@/app/providers'
 import { Layout } from '@/components/Layout'
@@ -24,6 +25,12 @@ export default async function RootLayout({ children }) {
 
   return (
     <html lang="en" className="h-full" suppressHydrationWarning>
+      <Head>
+        <meta name="robots" content="noindex,nofollow" />
+        {/* <meta name="googlebot" content="noindex,nofollow" />
+        <meta name="google" content="nositelinkssearchbox" key="sitelinks" />
+        <meta name="google" content="notranslate" key="notranslate" /> */}
+      </Head>
       <body className="flex min-h-full bg-white antialiased dark:bg-zinc-900">
         <Providers>
           <div className="w-full">
